@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import { getCorsOriginConfig } from './lib/corsOrigins.js';
 import authRoutes from './routes/auth.js';
 import videoRoutes from './routes/videos.js';
 import userRoutes from './routes/users.js';
@@ -11,7 +12,7 @@ const app = express();
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN || true,
+    origin: getCorsOriginConfig(),
     credentials: true,
   })
 );

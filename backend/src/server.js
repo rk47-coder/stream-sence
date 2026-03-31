@@ -3,12 +3,13 @@ import http from 'node:http';
 import { Server } from 'socket.io';
 import app from './app.js';
 import { connectDb } from './config/db.js';
+import { getCorsOriginConfig } from './lib/corsOrigins.js';
 import { setIo } from './services/socketHub.js';
 import { verifyToken } from './utils/jwt.js';
 
 const port = parseInt(process.env.PORT || '5050', 10);
 const mongoUri = process.env.MONGODB_URI;
-const clientOrigin = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
+const clientOrigin = getCorsOriginConfig();
 
 if (!mongoUri) {
   console.error('MONGODB_URI is required');
