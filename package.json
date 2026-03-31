@@ -1,0 +1,7 @@
+{
+  "name": "streamsense-monorepo",
+  "private": true,
+  "scripts": {
+    "clean": "npm run clean --prefix backend && npm run clean --prefix frontend"
+  }
+}

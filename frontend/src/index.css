@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    @apply min-h-screen antialiased text-zinc-800;
+    background-color: #e8e9ed;
+    background-image:
+      radial-gradient(ellipse 100% 70% at 50% -20%, rgba(45, 212, 191, 0.08), transparent 50%),
+      radial-gradient(ellipse 60% 45% at 100% 10%, rgba(99, 102, 241, 0.05), transparent 45%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(244, 114, 182, 0.04), transparent 48%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border border-zinc-200/90 bg-white/75 shadow-lg shadow-zinc-900/5 backdrop-blur-md;
+  }
+  .surface-strong {
+    @apply rounded-2xl border border-zinc-200 bg-white/90 backdrop-blur-xl shadow-md shadow-zinc-900/5;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-zinc-500;
+  }
+  .field {
+    @apply w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-teal-400/50 focus:ring-2 focus:ring-teal-400/15;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 px-5 py-3 text-sm font-semibold text-zinc-950 shadow-lg shadow-teal-500/20 transition hover:brightness-110 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-45;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-zinc-100/80 px-4 py-2.5 text-sm font-medium text-zinc-800 transition hover:border-zinc-300 hover:bg-zinc-200/60;
+  }
+  .btn-danger {
+    @apply w-full rounded-xl border border-rose-200 bg-rose-50 py-2.5 text-sm font-medium text-rose-800 transition hover:bg-rose-100;
+  }
+  .link-teal {
+    @apply font-medium text-teal-400 underline-offset-4 hover:text-teal-300 hover:underline;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-lg px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide;
+  }
+  .glow-ring {
+    box-shadow:
+      0 0 0 1px rgba(45, 212, 191, 0.15),
+      0 20px 50px -20px rgba(45, 212, 191, 0.25);
+  }
+}
+
+/* subtle grid on auth hero */
+.auth-grid {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}

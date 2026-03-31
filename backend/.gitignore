@@ -1,0 +1,5 @@
+node_modules/
+uploads/
+.env
+.mongo-ms-cache/
+coverage/
